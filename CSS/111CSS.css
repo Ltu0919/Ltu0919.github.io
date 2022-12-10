@@ -1,0 +1,145 @@
+html{
+    font-family: Roboto, "Helvetica", "Arial", "Microsoft JhengHei", sans-serif;
+}
+
+#topblcok{
+    width: 100%;
+    height:50px;
+}
+header{
+    display:flex;
+    background-color:#C4E1FF;
+    justify-content: space-between; /*空白區域置於中間*/
+    position:fixed; /*頁面捲動 還是固定在同一位置*/
+    top:0;
+    right:0;
+    left:0;
+}
+
+#logo{
+    color:#003060;
+    font-size:35px;
+    font-weight:900;
+    margin:5px 0;
+    margin-left: 15%;
+}
+
+ul{ /*關閉ul預設*/
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.menu{
+    list-style: none;
+    display:flex;
+    margin-right:15%;
+    /*background-color: red;*/
+}
+
+ul.menu li{
+    display: flex;
+    align-items: center;
+    position:relative;
+    white-space: nowrap; /*強制不換行*/
+    font-size:20px;
+    padding: 0 7px;
+    font-weight: 900;
+    /*background-color: white;*/
+}
+
+ul.menu a{
+    color:#003060;
+    display: block;
+    text-decoration: none; /*關閉預設樣式*/
+    /*background-color: #272727;*/
+}
+
+ul.menu li:hover{
+    box-shadow: inset 0 -7px #84C1FF;
+}
+
+ul.drop-down-list{
+    background-color:#F0f0f0;
+    border:#272727 10px;
+    display: none;
+    position: absolute;
+    z-index: 99999;
+    top:100%;
+    left:-0.25px;
+}
+
+ul.drop-down-list li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul.drop-down-list a{
+    text-decoration: none;
+    font-weight:normal;
+    line-height:2;
+}
+
+ul.drop-down-list li:hover{
+    background-color: #E0E0E0;
+    box-shadow: none;
+    
+}
+
+ul.drop-down-list a:hover{
+    transform: scale(1.1); /*滑鼠滑入後放大*/
+    
+}
+
+ul.menu li:hover > ul.drop-down-list{ /*滑鼠滑入展開次選單*/
+    display:block;
+    
+}
+
+.top{
+    display:flex;
+    position: absolute;
+    right: 15.5%;
+    top: 10px;
+}
+ .topitems{
+    position:relative;
+    margin:0px 5px;
+
+ }
+
+ footer{
+    display:flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color:#8E8E8E;
+    position:fixed;
+    height: 10%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+ }
+
+ .footer-link{
+    padding: 0 2px;
+    text-decoration:none;
+ }
+
+ /*以下為分頁css*/
+ 
+.introduce{
+    position: absolute;
+    /*padding-right: 25%;*/
+    padding-left: 15px;
+    margin-left: 50%;
+    top:90px;
+    height: 70%;
+    /*background-color: #003060;*/
+}
+.intr-title{
+    font-size: 50px;
+    font-weight: 500;
+    color: #3c3c3c;
+    margin-top: 40%;
+}
