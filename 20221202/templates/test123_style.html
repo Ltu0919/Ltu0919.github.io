@@ -1,0 +1,324 @@
+{% extends "111index.html" %}
+{% block main %}
+<html>
+    <head>
+        <style>
+            #map{
+                left: 15%;
+                margin-right: 65%;
+                margin-top:85px;
+                height: 75%;
+                }
+        </style>
+    </head>
+    <body class="paging">
+        <div id="map"></div>
+        
+        <script>
+            function initMap(){
+                var taipeiST = {lat: 25.07457, lng: 121.511537};
+                var map = new google.maps.Map(document.getElementById('map'),{
+                    zoom: 15,
+                    center: taipeiST,
+                    styles:[
+                    {
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "color": "#ebe3cd"
+                    }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                    {
+                        "color": "#523735"
+                    }
+                    ]
+                },
+                {
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                    {
+                        "color": "#f5f1e6"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "administrative",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                    {
+                        "color": "#c9b2a6"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                    {
+                        "color": "#dcd2be"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "administrative.land_parcel",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                    {
+                        "color": "#ae9e90"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "landscape.natural",
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "color": "#dfd2ae"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "color": "#dfd2ae"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                    {
+                        "color": "#93817c"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                    {
+                        "color": "#a5b076"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "poi.park",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                    {
+                        "color": "#447530"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "color": "#f5f1e6"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels.icon",
+                    "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "road.arterial",
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "color": "#fdfcf8"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "color": "#f8c967"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "road.highway",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                    {
+                        "color": "#e9bc62"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "road.highway.controlled_access",
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "color": "#e98d58"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "road.highway.controlled_access",
+                    "elementType": "geometry.stroke",
+                    "stylers": [
+                    {
+                        "color": "#db8555"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "road.local",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                    {
+                        "color": "#806b63"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "transit",
+                    "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "color": "#dfd2ae"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                    {
+                        "color": "#8f7d77"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "transit.line",
+                    "elementType": "labels.text.stroke",
+                    "stylers": [
+                    {
+                        "color": "#ebe3cd"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "transit.station",
+                    "elementType": "geometry",
+                    "stylers": [
+                    {
+                        "color": "#dfd2ae"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "geometry.fill",
+                    "stylers": [
+                    {
+                        "color": "#b9d3c2"
+                    }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "labels.text.fill",
+                    "stylers": [
+                    {
+                        "color": "#92998d"
+                    }
+                    ]
+                }
+                    ]   
+                });
+                
+                var maker = new google.maps.Marker({
+                    position: taipeiST,
+                    map: map
+                });
+
+                var kmzLayer = new google.maps.KmzLayer({
+                    url:"../迪化街下水道分析.kmz",
+                    map: map
+                });
+                /*
+                fetch("../123456.json")
+                    .then(results => results.json())
+                    .then(result => {
+                        let res = result.features;
+                        Array.prototype.forEach.call(res, r => { //迭代，1緯度 0經度
+                            let latLng = new google.maps.LatLng(r.geometry.coordinates[1], r.geometry.coordinates[0]);
+                            let marker = new google.maps.Marker({
+                                position: latLng,
+                                map: map
+                            });
+                        });
+                    });
+                    */
+                /*var LAT = [25.063873,25.065083,25.066456,25.065308,25.065847,25.065873,25.065889,25.065949,25.066598,25.065939,25.065932,25.065932,25.065941,25.067548,25.068677,25.069634,25.070943,25.072188,25.070067,25.069984,25.068684,25.068722,25.06868,25.067411,25.068259,25.06871,25.069694,25.070299,25.070849,25.072186,25.072107,25.072137,25.072157,25.073334,25.072919,25.073695,25.0742,25.07457,25.074922,25.075481,25.07308,25.073622,25.074119,25.074778,25.075392,25.075997,25.076502,25.076538,25.080647,25.081462,25.081417,25.080965,25.080667,25.080312,25.080103,25.080066,25.08002,25.082581,25.08297,25.083223,25.082076,25.065912,25.065932,25.065934,25.065927,25.065937,25.070542,25.070541,25.070511,25.0705,25.06855,25.068561,25.068582,25.068571,25.068641,25.06866,25.068663,25.072044,25.072045,25.072057,25.072059,25.076898,25.077051,25.076505,25.076534,25.076527,25.076537,25.07595,25.076419,25.080198,25.077478,25.072911,25.080586,25.078662,25.078626,25.080506,25.080119,25.080532
+                    ]
+                var LNG = [121.511125,121.511051,121.510968,121.508752,121.509419,121.509815,121.510361,121.508825,121.508877,121.51159,121.511074,121.511005,121.510926,121.510903,121.510838,121.510842,121.510867,121.511011,121.510854,121.511527,121.511522,121.511027,121.509996,121.508969,121.509062,121.509133,121.509236,121.509249,121.509251,121.509108,121.51111,121.510337,121.509722,121.511254,121.511173,121.511345,121.511456,121.511537,121.511617,121.511739,121.509032,121.508945,121.508928,121.508911,121.508873,121.508846,121.508888,121.508888,121.508667,121.507927,121.507768,121.507895,121.507983,121.508933,121.50926,121.509448,121.509765,121.507912,121.507794,121.507686,121.507751,121.514088,121.513483,121.513047,121.512522,121.512115,121.511837,121.512263,121.513195,121.513571,121.513534,121.513137,121.512285,121.512919,121.513534,121.513128,121.512305,121.513588,121.513459,121.512577,121.511873,121.511982,121.511914,121.513259,121.512605,121.51213,121.511961,121.51185,121.511951,121.507991,121.508525,121.513601,121.507983,121.51084,121.508312,121.507665,121.507317,121.507973
+                    ]
+                for (var i=0; i<LAT.length; i++){
+                    var LATLNG = {lat: LAT[i], lng: LNG[i]};
+                    var markersss = new google.maps.Marker({
+                        position: LATLNG,
+                        icon: '../static/3.png',
+                        map: map
+                        });
+                }*/
+                /*map.data.loadGeoJson('../mark.geojson');*/
+            }
+        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-DVxN-HoeGrw77OmWd21eZsCW3r2PGKY&callback=initMap">
+        </script>
+
+        <div class="introduce">
+            <div class="intr-title">納莉颱風</div>
+            <div class="intr-main">溢流狀況等介紹...</div>
+            <img style="text-align: bottom;" src="./static/messageImage_1669952138615.jpg"/>
+        </div>
+
+    </body>
+</html>
+{% endblock %}
